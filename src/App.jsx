@@ -15,15 +15,33 @@ import { Label } from "@/components/ui/label"
 "use client"
 import { useToast } from "@/components/ui/use-toast"
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
 const App = () => {
   const { toast } = useToast()
   return (
-  <div className='outer-contaier w-full flex justify-center items-center h-screen'>
+
+    <div className='outer-contaier w-full flex justify-center items-center h-screen'>
+
+    <Card className="inner-container w-3/4 bg-[#F9F9F9] p-10 shadow-lg rounded-lg max-w-[1024px]">
   
   
   {/* ekhane inner contaiber jeta w-fix hoye profile page hobe */}
-  <div className="inner-container w-3/4 bg-[#F9F9F9] p-10 shadow-lg rounded-lg max-w-[1024px]">
-    <div className="profile flex items-center gap-3">
+
+    <CardContent >
+
+    
+    <form>
+
+      <CardHeader>
+      <div className="profile flex items-center gap-3">
       <img src={user} alt="" className="w-16 h-16 rounded-full object-cover" />
       <div className="edit-btn">
       <Dialog>
@@ -66,6 +84,9 @@ const App = () => {
     </Dialog>
       </div>
     </div>
+      </CardHeader>
+  
+    
     <div className="input-elements pt-5">
       <div className="input-section-1 grid sm:grid-cols-2 grid-cols-1 gap-4 pb-4">
       <div className="username ">
@@ -91,8 +112,14 @@ const App = () => {
       </div>
 
     </div>
-    <div className="side-buttons flex justify-end gap-4 w-full pt-4">
-      <Button size='custom' variant='custom2'>cancel</Button>
+    
+    </form>
+  
+
+  </CardContent>
+
+  <CardFooter className="side-buttons flex justify-end gap-4 w-full pt-4">
+  <Button size='custom' variant='custom2'>cancel</Button>
       <Button
       variant="custom2"
       onClick={() => {
@@ -103,10 +130,12 @@ const App = () => {
     >
       Show Toast
     </Button>
-    </div>
-    
-  </div>
+  </CardFooter>
   
+  
+
+  </Card>
+
   </div>
   )
 }
